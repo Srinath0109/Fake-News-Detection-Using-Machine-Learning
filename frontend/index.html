@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detector</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        textarea { width: 80%; height: 100px; }
+        #result { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Fake News Detection</h1>
+    <textarea id="news-text" placeholder="Paste news article here..."></textarea><br><br>
+    <button onclick="checkNews()">Check News</button>
+    <p id="result"></p>
+
+    <script>
+        async function checkNews() {
+            let text = document.getElementById("news-text").value;
+            let response = await fetch("http://127.0.0.1:5000/predict", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ text: text })
+            });
+
+            let result = await response.json();
+            document.getElementById("result").innerText = "Prediction: " + result.prediction;
+        }
+    </script>
+</body>
+</html>

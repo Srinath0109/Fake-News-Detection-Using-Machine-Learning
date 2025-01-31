@@ -1,0 +1,12 @@
+FakeNewsDetection/
+│── backend/                  # Flask Backend
+│   │── models/                # Machine Learning Models
+│   │── routes/                # API Endpoints
+│   │── services/              # Text Preprocessing & Predictions
+│   │── main.py                # Main Flask App
+│   │── config.py              # Configuration Settings
+│── dataset/                   # Kaggle Fake News Dataset
+│── frontend/                  # HTML/CSS/JS Frontend
+│── models/                    # Trained ML Model
+│── requirements.txt           # Dependencies
+│── README.md                  # Documentation
